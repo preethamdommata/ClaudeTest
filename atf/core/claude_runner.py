@@ -92,13 +92,12 @@ class ClaudeRunner:
 
         cmd = [
             self.binary,
-            "--model",      model,
-            "--max-tokens", str(max_tokens),
-            "--print",
-            prompt,
+            "--model",          model,
+            "--output-format",  "text",
+            "-p",               prompt,
         ]
 
-        logger.info(f"Claude CLI → stage={stage} model={model} max_tokens={max_tokens}")
+        logger.info(f"Claude CLI → stage={stage} model={model}")
 
         try:
             result = subprocess.run(
