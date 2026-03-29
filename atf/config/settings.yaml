@@ -1,0 +1,42 @@
+claude:
+  models:
+    analyze:    claude-haiku-4-5-20251001
+    scenarios:  claude-sonnet-4-6
+    testcase:   claude-sonnet-4-6
+    automate:   claude-sonnet-4-6
+    heal:       claude-sonnet-4-6
+  max_tokens:
+    analyze:    1000
+    scenarios:  1500
+    testcase:   900
+    automate:   1400
+    heal:       1000
+  cli_binary:   claude          # must be on PATH
+
+git:
+  remote:         origin
+  branch:         main
+  auto_push:      true
+  commit_prefix:  "feat(atf)"
+
+playwright:
+  browser:    chromium          # chromium | firefox | webkit
+  headless:   false
+  base_url:   "https://www.saucedemo.com"  # set per run or override via CLI
+  timeout_ms: 30000
+  slow_mo:    0
+
+paths:
+  prompts:    prompts/
+  locators:   locators/
+  pages:      pages/
+  output:
+    root:       output/
+    scenarios:  output/scenarios/
+    testcases:  output/testcases/
+    tests:      output/tests/
+  reports:    reports/
+
+human_loop:
+  enabled: true                 # set false to run fully automated (CI mode)
+  editor:   ""                  # leave blank to use system default
