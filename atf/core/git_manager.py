@@ -28,7 +28,7 @@ class GitManager:
             logger.warning("No files to commit.")
             return
 
-        existing = [f for f in files if Path(f).exists()]
+        existing = [str(Path(f).resolve()) for f in files if Path(f).exists()]
         if not existing:
             logger.warning("None of the listed files exist — skipping commit.")
             return
@@ -52,7 +52,7 @@ class GitManager:
         if not Path(locator_file).exists():
             return
 
-        self.repo.index.add([locator_file])
+        self.repo.index.add([str(Path(locator_file).resolve())])
         msg = f"heal(locator): {page_name}.{element_name}"
         self.repo.index.commit(msg)
         logger.success(f"Healed locator committed: {msg}")
