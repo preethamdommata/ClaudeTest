@@ -1,10 +1,10 @@
 {
-  "name": "Remove product from cart on cart page",
+  "name": "Standard user removes item from shopping cart",
   "feature": "Shopping Cart",
   "type": "happy_path",
   "priority": "High",
   "page": "Shopping Cart Page",
-  "description": "Add a product to the cart, navigate to the Shopping Cart Page, and remove it. Verify the cart is empty and the badge is cleared.",
+  "description": "Verify that clicking 'Remove' on a cart item removes it from the cart and decrements the cart badge count accordingly.",
   "tags": [
     "cart",
     "remove_item",

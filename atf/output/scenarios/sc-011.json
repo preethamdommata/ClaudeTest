@@ -1,14 +1,15 @@
 {
-  "name": "Add single product to cart and verify cart badge",
+  "name": "Standard user adds single item to shopping cart",
   "feature": "Shopping Cart",
   "type": "happy_path",
   "priority": "High",
   "page": "Products Page",
-  "description": "Click 'Add to Cart' on one product and verify the cart icon badge increments to 1 on the Products Page.",
+  "description": "Verify that clicking 'Add to Cart' on a product increments the cart badge count and adds the item to the Shopping Cart Page.",
   "tags": [
     "cart",
     "add_to_cart",
-    "standard_user"
+    "standard_user",
+    "smoke"
   ],
   "id": "SC-011"
 }

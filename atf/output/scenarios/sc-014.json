@@ -1,14 +1,15 @@
 {
-  "name": "Complete checkout with valid shipping information",
+  "name": "Checkout attempt with empty first name field",
   "feature": "Checkout",
-  "type": "happy_path",
+  "type": "negative",
   "priority": "High",
   "page": "Checkout Page",
-  "description": "Add items to cart, proceed to checkout, fill in valid first name, last name, and zip code, and complete the purchase. Verify the Order Confirmation Page is displayed.",
+  "description": "Verify that submitting the checkout form without a first name displays a validation error and prevents proceeding to the next step.",
   "tags": [
     "checkout",
-    "happy_path",
-    "standard_user"
+    "validation",
+    "required_field",
+    "negative"
   ],
   "id": "SC-014"
 }

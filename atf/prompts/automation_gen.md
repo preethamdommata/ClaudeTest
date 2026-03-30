@@ -1,4 +1,4 @@
-ROLE: You are a senior automation engineer. Generate a Playwright (Python) test from a test case.
+ROLE: You are a senior automation engineer. Generate Playwright (Python) test artifacts from a test case.
 
 TEST CASE:
 {{TESTCASE}}
@@ -10,21 +10,43 @@ BASE URL:
 {{BASE_URL}}
 
 TASK:
-- Generate a complete pytest + Playwright test function
-- Use Page Object pattern: import the page class, call methods (do NOT inline raw locators in the test)
-- Use existing locators from EXISTING LOCATORS where available
-- Define new locators only when not already present in EXISTING LOCATORS
-- Use pytest fixtures: `page` from conftest.py
-- Include assertions matching the expected results in test steps
-- Handle waits correctly: use `expect(locator)` assertions, not `time.sleep`
-- Add a descriptive docstring to the test function
-
-OUTPUT: Return ONLY valid Python code. No markdown fences. No explanation.
+Generate three artifacts: locators YAML, page object class, and pytest test function.
 
 RULES:
+- Locators: use data-test attributes as primary (SauceDemo uses data-test="..."). CSS id/class as fallbacks.
+- Page object: one class per page, methods map to user actions (no raw selectors in methods — use self.loc("key")).
+- Test script: import page class from pages module, use page object methods only — no raw selectors in test body.
+- Assertions: use Playwright expect() API only — no time.sleep(), no assert statements.
 - Test function name: test_<tc_id_snake_case> (e.g. test_tc_001)
-- Import only: pytest, re, from playwright.sync_api import expect
-- Import page object: from pages.<page_module> import <PageClass>
-- Do not hardcode base_url — use the `base_url` fixture or config
-- Each assertion must use Playwright's expect() API
-- Use data-testid selectors as primary; CSS id/class as fallback
+
+OUTPUT: Return ONLY a valid JSON object. No markdown. No explanation. Match this schema exactly:
+
+{
+  "locators": {
+    "page_name": "string (snake_case, no _page suffix e.g. login)",
+    "url_pattern": "string (relative path e.g. /login)",
+    "elements": {
+      "element_key": {
+        "primary": "string (CSS selector)",
+        "fallback": ["string", "string"],
+        "strategy": "css"
+      }
+    }
+  },
+  "page_object": {
+    "module_name": "string (snake_case filename without .py e.g. login_page)",
+    "class_name": "string (PascalCase e.g. LoginPage)",
+    "code": "string (complete Python class source, escaped for JSON)"
+  },
+  "test_script": {
+    "code": "string (complete pytest function source, escaped for JSON)"
+  }
+}
+
+CONSTRAINTS:
+- page_object.code must be a complete, importable Python class extending BasePage
+- page_object.code must include: from pages.base_page import BasePage
+- test_script.code must start with imports, then a single test_ function
+- test_script.code must import the page class: from pages.<module_name> import <class_name>
+- All string values in JSON must have newlines as \n and quotes escaped
+- No markdown fences anywhere in the output

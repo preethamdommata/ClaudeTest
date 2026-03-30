@@ -1,14 +1,15 @@
 {
-  "name": "Error user receives error messages during cart operations",
-  "feature": "Shopping Cart",
-  "type": "role_based",
+  "name": "Login page UI elements render correctly on load",
+  "feature": "User Authentication",
+  "type": "ui_ux",
   "priority": "Medium",
-  "page": "Shopping Cart Page",
-  "description": "Log in as error_user, add products to the cart, and attempt cart operations. Verify error messages are surfaced as documented for this user type.",
+  "page": "Login Page",
+  "description": "Verify that the Login Page displays the username field, password field, login button, and Swag Labs logo correctly without visual defects on initial load.",
   "tags": [
-    "error_user",
-    "cart",
-    "error_message"
+    "ui",
+    "login",
+    "page_load",
+    "visual"
   ],
   "id": "SC-020"
 }

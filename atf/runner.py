@@ -19,6 +19,7 @@ from core.analyzer import Analyzer
 from core.scenario_generator import ScenarioGenerator
 from core.testcase_author import TestCaseAuthor
 from core.automation_generator import AutomationGenerator
+from core.test_validator import TestValidator
 from core.claude_runner import ClaudeRunner
 from core.git_manager import GitManager
 from utils.file_utils import load_yaml, load_json, list_files
@@ -66,11 +67,12 @@ def run_testcase_authoring(runner, config, scenario) -> dict:
 
 
 def run_automation_generation(runner, config, testcase,
-                               locator_store, base_url) -> tuple[str, str]:
+                               locator_store, base_url) -> tuple[str, str, str]:
     gen = AutomationGenerator(
         runner,
         config["paths"]["output"]["tests"],
         locator_store,
+        config["paths"]["pages"],
         base_url,
     )
     return gen.generate(testcase)
@@ -101,9 +103,10 @@ def main(brd, url, resume, no_human, base_url):
         editor=hl_cfg.get("editor", ""),
     )
 
-    runner       = ClaudeRunner(config)
-    git_mgr      = GitManager(config)
+    runner        = ClaudeRunner(config)
+    git_mgr       = GitManager(config)
     locator_store = LocatorStore(config["paths"]["locators"])
+    validator     = TestValidator(runner)
 
     # ==================================================================
     # STAGE 1: ANALYZE
@@ -158,17 +161,26 @@ def main(brd, url, resume, no_human, base_url):
         testcase = load_json(tc_path)
 
         # --- Stage 4: Automation Generation ---
-        test_path, locator_path = run_automation_generation(
+        test_path, locator_path, page_path = run_automation_generation(
             runner, config, testcase, locator_store,
             config["playwright"]["base_url"]
         )
 
+        # --- Test Validation: must pass before human gate ---
+        passed = validator.validate(test_path, page_path)
+        if not passed:
+            logger.warning(
+                f"Test validation failed for {sc_id}. "
+                "Fix the test manually or press R at the next gate to regenerate."
+            )
+
         decision = gate.review_automation(test_path, sc_name)
         while decision["action"] == "R":
-            test_path, locator_path = run_automation_generation(
+            test_path, locator_path, page_path = run_automation_generation(
                 runner, config, testcase, locator_store,
                 config["playwright"]["base_url"]
             )
+            validator.validate(test_path, page_path)
             decision = gate.review_automation(test_path, sc_name)
 
         if decision["action"] == "S":
@@ -181,6 +193,7 @@ def main(brd, url, resume, no_human, base_url):
             tc_path,
             test_path,
             locator_path,
+            page_path,
         ]
         git_mgr.commit_scenario(sc_id, sc_name, files_to_commit)
         logger.success(f"Committed and pushed: {sc_id}")

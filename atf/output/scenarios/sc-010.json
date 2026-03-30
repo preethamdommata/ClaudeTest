@@ -1,13 +1,13 @@
 {
-  "name": "Sort products by name Z to A",
-  "feature": "Product Sorting",
+  "name": "Standard user views individual product details page",
+  "feature": "Product Details",
   "type": "happy_path",
-  "priority": "Low",
-  "page": "Products Page",
-  "description": "Select the 'Name (Z to A)' sort option and verify products are reordered in reverse alphabetical order.",
+  "priority": "Medium",
+  "page": "Product Details Page",
+  "description": "Verify that clicking a product name or image navigates to the Product Details Page and displays the correct name, description, price, and image.",
   "tags": [
-    "sorting",
-    "name",
+    "product_details",
+    "navigation",
     "standard_user"
   ],
   "id": "SC-010"

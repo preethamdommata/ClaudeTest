@@ -1,14 +1,15 @@
 {
-  "name": "Visual user sees inconsistent UI elements",
-  "feature": "Product Catalog",
+  "name": "Error message displayed when error_user attempts add to cart",
+  "feature": "Shopping Cart",
   "type": "role_based",
-  "priority": "Low",
+  "priority": "Medium",
   "page": "Products Page",
-  "description": "Log in as visual_user and verify that known visual inconsistencies (e.g., misaligned elements, incorrect images) are present on the Products Page.",
+  "description": "Verify that error_user receives an error message when attempting to add items to the cart, reflecting the known error behavior for that account.",
   "tags": [
-    "visual_user",
-    "ui_ux",
-    "visual_inconsistency"
+    "cart",
+    "error_user",
+    "role_based",
+    "error_handling"
   ],
   "id": "SC-019"
 }

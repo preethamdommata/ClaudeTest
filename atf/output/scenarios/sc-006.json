@@ -1,14 +1,15 @@
 {
-  "name": "Product catalog loads all items for standard user",
-  "feature": "Product Catalog",
-  "type": "happy_path",
-  "priority": "High",
-  "page": "Products Page",
-  "description": "After standard_user logs in, verify the Products Page displays the full inventory with product names, images, descriptions, and prices.",
+  "name": "Login attempt with special characters in username",
+  "feature": "User Authentication",
+  "type": "boundary",
+  "priority": "Low",
+  "page": "Login Page",
+  "description": "Verify that entering special characters (e.g., '<script>', SQL injection strings) in the username field does not break the application and shows an appropriate error.",
   "tags": [
-    "catalog",
-    "standard_user",
-    "page_load"
+    "login",
+    "security",
+    "boundary",
+    "special_characters"
   ],
   "id": "SC-006"
 }

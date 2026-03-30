@@ -1,14 +1,15 @@
 {
-  "name": "Checkout fails when required fields are missing",
+  "name": "Checkout attempt with empty postal code field",
   "feature": "Checkout",
-  "type": "negative",
-  "priority": "High",
+  "type": "boundary",
+  "priority": "Medium",
   "page": "Checkout Page",
-  "description": "Attempt to submit the checkout form with one or more required fields (first name, last name, zip code) left blank. Verify validation errors are displayed.",
+  "description": "Verify that submitting the checkout form with the postal code left blank triggers a required-field error for that input.",
   "tags": [
     "checkout",
     "validation",
-    "missing_fields"
+    "boundary",
+    "postal_code"
   ],
   "id": "SC-015"
 }

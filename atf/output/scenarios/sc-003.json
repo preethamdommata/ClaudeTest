@@ -1,13 +1,14 @@
 {
-  "name": "Login attempt with empty username and password",
+  "name": "Login attempt with empty username and password fields",
   "feature": "User Authentication",
   "type": "boundary",
   "priority": "High",
   "page": "Login Page",
-  "description": "Submit the login form with both username and password fields empty. Verify that a validation error is shown and login is blocked.",
+  "description": "Verify that submitting the login form with both fields empty displays a validation error and does not proceed to the application.",
   "tags": [
     "login",
     "validation",
+    "boundary",
     "empty_fields"
   ],
   "id": "SC-003"

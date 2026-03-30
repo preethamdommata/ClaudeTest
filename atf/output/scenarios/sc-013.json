@@ -1,14 +1,16 @@
 {
-  "name": "Proceed to checkout with empty cart",
+  "name": "Checkout with all required fields completed successfully",
   "feature": "Checkout",
-  "type": "negative",
-  "priority": "Medium",
-  "page": "Shopping Cart Page",
-  "description": "Navigate to the Shopping Cart Page with no items added and attempt to proceed to checkout. Verify appropriate feedback or an empty cart state is shown.",
+  "type": "happy_path",
+  "priority": "High",
+  "page": "Checkout Page",
+  "description": "Verify that standard_user can complete checkout by entering valid first name, last name, and postal code, and reaches the Order Confirmation Page.",
   "tags": [
-    "cart",
     "checkout",
-    "empty_cart"
+    "purchase",
+    "standard_user",
+    "smoke",
+    "end_to_end"
   ],
   "id": "SC-013"
 }

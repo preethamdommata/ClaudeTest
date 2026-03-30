@@ -44,7 +44,7 @@ class ClaudeRunner:
         return self._call_json(prompt, stage="testcase")
 
     def generate_automation(self, testcase: dict, locators: dict,
-                            base_url: str) -> str:
+                            base_url: str) -> dict:
         prompt = self._build_prompt(
             "automation_gen",
             {
@@ -53,7 +53,7 @@ class ClaudeRunner:
                 "BASE_URL":  base_url,
             },
         )
-        return self._call_text(prompt, stage="automate")
+        return self._call_json(prompt, stage="automate")
 
     def heal_locator(self, page_name: str, element_name: str,
                      broken_locator: str, dom_snapshot: str) -> dict:

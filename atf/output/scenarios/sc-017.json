@@ -1,14 +1,15 @@
 {
-  "name": "Add product to cart from product details page",
-  "feature": "Product Details",
-  "type": "happy_path",
+  "name": "Problem user experiences glitches during product catalog browsing",
+  "feature": "Product Catalog",
+  "type": "role_based",
   "priority": "Medium",
-  "page": "Product Details Page",
-  "description": "Navigate to a product's detail page and click 'Add to Cart'. Verify the cart badge increments and the button state updates accordingly.",
+  "page": "Products Page",
+  "description": "Verify that problem_user can log in and observe known application glitches (e.g., broken images, incorrect product details) on the Products Page.",
   "tags": [
-    "product_details",
-    "add_to_cart",
-    "standard_user"
+    "catalog",
+    "problem_user",
+    "role_based",
+    "glitch"
   ],
   "id": "SC-017"
 }

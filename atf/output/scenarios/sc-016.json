@@ -1,14 +1,15 @@
 {
-  "name": "View product details from catalog",
-  "feature": "Product Details",
+  "name": "Standard user successfully logs out and returns to login page",
+  "feature": "User Logout",
   "type": "happy_path",
-  "priority": "Medium",
-  "page": "Product Details Page",
-  "description": "Click on a product name or image from the Products Page and verify the Product Details Page shows the correct name, description, price, and image.",
+  "priority": "High",
+  "page": "Products Page",
+  "description": "Verify that clicking the logout option from the menu terminates the session and redirects the user back to the Login Page.",
   "tags": [
-    "product_details",
-    "navigation",
-    "standard_user"
+    "logout",
+    "session",
+    "standard_user",
+    "navigation"
   ],
   "id": "SC-016"
 }

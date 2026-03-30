@@ -1,14 +1,15 @@
 {
-  "name": "Product catalog loads with delay for performance glitch user",
-  "feature": "Product Catalog",
-  "type": "role_based",
+  "name": "Product catalog sorted by price low to high",
+  "feature": "Product Sorting",
+  "type": "happy_path",
   "priority": "Medium",
   "page": "Products Page",
-  "description": "Log in as performance_glitch_user and verify the Products Page loads but exhibits a noticeable delay before content is rendered.",
+  "description": "Verify that selecting 'Price (low to high)' from the sort dropdown reorders the product list in ascending price order.",
   "tags": [
+    "sorting",
     "catalog",
-    "performance_glitch_user",
-    "slow_load"
+    "products",
+    "price"
   ],
   "id": "SC-008"
 }
