@@ -1,5 +1,54 @@
 last_healed: null
-locators: {}
+locators:
+  error_message:
+    fallback:
+    - .error-message-container h3
+    - .error-message-container .error
+    healed: false
+    primary: '[data-test="error"]'
+    strategy: css
+  inventory_container:
+    fallback:
+    - .inventory_list
+    - '#inventory_container .inventory_list'
+    healed: false
+    primary: '[data-test="inventory-container"]'
+    strategy: css
+  login_button:
+    fallback:
+    - '#login-button'
+    - .btn_action
+    healed: false
+    primary: '[data-test="login-button"]'
+    strategy: css
+  password_input:
+    fallback:
+    - '#password'
+    - input[name="password"]
+    healed: false
+    primary: '[data-test="password"]'
+    strategy: css
+  products_title:
+    fallback:
+    - .title
+    - span.title
+    healed: false
+    primary: '[data-test="title"]'
+    strategy: css
+  shopping_cart:
+    fallback:
+    - .shopping_cart_link
+    - '#shopping_cart_container a'
+    healed: false
+    primary: '[data-test="shopping-cart-link"]'
+    strategy: css
+  username_input:
+    fallback:
+    - '#user-name'
+    - input[name="user-name"]
+    healed: false
+    primary: '[data-test="username"]'
+    strategy: css
 page: login_page
 url_pattern: /
 version: 1
