@@ -1,13 +1,14 @@
 {
-  "name": "Standard user views individual product details page",
-  "feature": "Product Details",
+  "name": "Product catalog sorting by price low to high",
+  "feature": "Product Sorting",
   "type": "happy_path",
   "priority": "Medium",
-  "page": "Product Details Page",
-  "description": "Verify that clicking a product name or image navigates to the Product Details Page and displays the correct name, description, price, and image.",
+  "page": "Products Page",
+  "description": "Verify that selecting 'Price (low to high)' from the sort dropdown reorders the product list in ascending price order.",
   "tags": [
-    "product_details",
-    "navigation",
+    "sorting",
+    "catalog",
+    "price",
     "standard_user"
   ],
   "id": "SC-010"

@@ -1,15 +1,15 @@
 {
-  "name": "Locked out user receives error message on login",
+  "name": "Locked out user sees error message on login attempt",
   "feature": "User Authentication",
   "type": "negative",
   "priority": "High",
   "page": "Login Page",
-  "description": "Verify that locked_out_user cannot log in and receives an appropriate 'locked out' error message on the Login Page.",
+  "description": "Verify that locked_out_user cannot log in and receives a visible locked-out error message without being redirected to the application.",
   "tags": [
     "login",
     "authentication",
     "locked_out_user",
-    "error_handling"
+    "error_message"
   ],
   "id": "SC-002"
 }

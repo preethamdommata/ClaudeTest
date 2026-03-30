@@ -1,15 +1,15 @@
 {
-  "name": "Product catalog sorted by name Z to A",
-  "feature": "Product Sorting",
+  "name": "Product catalog displays all items for standard user",
+  "feature": "Product Catalog",
   "type": "happy_path",
-  "priority": "Medium",
+  "priority": "High",
   "page": "Products Page",
-  "description": "Verify that selecting 'Name (Z to A)' from the sort dropdown reorders the product list in reverse alphabetical order.",
+  "description": "Verify that after logging in as standard_user, the Products Page loads and displays all available inventory items with names, images, and prices.",
   "tags": [
-    "sorting",
     "catalog",
     "products",
-    "name"
+    "standard_user",
+    "smoke"
   ],
   "id": "SC-009"
 }

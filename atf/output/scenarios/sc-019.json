@@ -1,15 +1,15 @@
 {
-  "name": "Error message displayed when error_user attempts add to cart",
-  "feature": "Shopping Cart",
-  "type": "role_based",
-  "priority": "Medium",
-  "page": "Products Page",
-  "description": "Verify that error_user receives an error message when attempting to add items to the cart, reflecting the known error behavior for that account.",
+  "name": "Logged out user cannot access products page directly",
+  "feature": "User Logout",
+  "type": "negative",
+  "priority": "High",
+  "page": "Login Page",
+  "description": "Verify that navigating directly to the Products Page URL after logout redirects the user to the Login Page instead of granting access.",
   "tags": [
-    "cart",
-    "error_user",
-    "role_based",
-    "error_handling"
+    "logout",
+    "session",
+    "authorization",
+    "negative"
   ],
   "id": "SC-019"
 }

@@ -1,15 +1,15 @@
 {
-  "name": "Login attempt with special characters in username",
+  "name": "Login attempt with invalid username and valid password",
   "feature": "User Authentication",
-  "type": "boundary",
-  "priority": "Low",
+  "type": "negative",
+  "priority": "High",
   "page": "Login Page",
-  "description": "Verify that entering special characters (e.g., '<script>', SQL injection strings) in the username field does not break the application and shows an appropriate error.",
+  "description": "Verify that entering an unrecognized username with the correct password results in an authentication error and prevents access.",
   "tags": [
     "login",
-    "security",
-    "boundary",
-    "special_characters"
+    "authentication",
+    "invalid_credentials",
+    "negative"
   ],
   "id": "SC-006"
 }

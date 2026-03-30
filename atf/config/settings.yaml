@@ -9,7 +9,7 @@ claude:
     analyze:    1000
     scenarios:  1500
     testcase:   900
-    automate:   1400
+    automate:   4000
     heal:       1000
   cli_binary:   claude          # must be on PATH
 

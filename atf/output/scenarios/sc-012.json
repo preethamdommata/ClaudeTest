@@ -1,13 +1,13 @@
 {
-  "name": "Standard user removes item from shopping cart",
-  "feature": "Shopping Cart",
+  "name": "Product detail page loads correct information",
+  "feature": "Product Details",
   "type": "happy_path",
-  "priority": "High",
-  "page": "Shopping Cart Page",
-  "description": "Verify that clicking 'Remove' on a cart item removes it from the cart and decrements the cart badge count accordingly.",
+  "priority": "Medium",
+  "page": "Product Details Page",
+  "description": "Verify that clicking a product on the catalog navigates to the Product Details Page and displays the correct name, description, image, and price.",
   "tags": [
-    "cart",
-    "remove_item",
+    "product_details",
+    "navigation",
     "standard_user"
   ],
   "id": "SC-012"

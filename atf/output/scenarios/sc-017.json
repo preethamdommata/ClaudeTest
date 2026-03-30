@@ -1,15 +1,15 @@
 {
-  "name": "Problem user experiences glitches during product catalog browsing",
+  "name": "Performance glitch user experiences delayed page load",
   "feature": "Product Catalog",
   "type": "role_based",
   "priority": "Medium",
   "page": "Products Page",
-  "description": "Verify that problem_user can log in and observe known application glitches (e.g., broken images, incorrect product details) on the Products Page.",
+  "description": "Verify that performance_glitch_user experiences a noticeable delay when loading the Products Page compared to standard_user.",
   "tags": [
-    "catalog",
-    "problem_user",
+    "performance",
+    "performance_glitch_user",
     "role_based",
-    "glitch"
+    "catalog"
   ],
   "id": "SC-017"
 }

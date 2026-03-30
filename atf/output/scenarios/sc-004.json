@@ -1,15 +1,15 @@
 {
-  "name": "Login attempt with valid username and incorrect password",
+  "name": "Login attempt with empty password field",
   "feature": "User Authentication",
-  "type": "negative",
+  "type": "boundary",
   "priority": "High",
   "page": "Login Page",
-  "description": "Verify that entering a valid username with a wrong password displays an authentication error and keeps the user on the Login Page.",
+  "description": "Verify that submitting the login form with the password field empty displays a required field validation error.",
   "tags": [
     "login",
-    "authentication",
-    "negative",
-    "wrong_password"
+    "validation",
+    "empty_field",
+    "boundary"
   ],
   "id": "SC-004"
 }

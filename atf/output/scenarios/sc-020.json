@@ -1,15 +1,15 @@
 {
-  "name": "Login page UI elements render correctly on load",
-  "feature": "User Authentication",
-  "type": "ui_ux",
+  "name": "Problem user encounters glitches during navigation",
+  "feature": "Product Catalog",
+  "type": "role_based",
   "priority": "Medium",
-  "page": "Login Page",
-  "description": "Verify that the Login Page displays the username field, password field, login button, and Swag Labs logo correctly without visual defects on initial load.",
+  "page": "Products Page",
+  "description": "Verify that problem_user experiences known application issues such as broken images or incorrect product data when browsing the catalog.",
   "tags": [
-    "ui",
-    "login",
-    "page_load",
-    "visual"
+    "problem_user",
+    "role_based",
+    "glitch",
+    "catalog"
   ],
   "id": "SC-020"
 }

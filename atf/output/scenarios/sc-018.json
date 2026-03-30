@@ -1,15 +1,15 @@
 {
-  "name": "Performance glitch user experiences delayed page load on products page",
-  "feature": "Product Catalog",
-  "type": "role_based",
-  "priority": "Medium",
+  "name": "Standard user can log out successfully",
+  "feature": "User Logout",
+  "type": "happy_path",
+  "priority": "High",
   "page": "Products Page",
-  "description": "Verify that performance_glitch_user experiences a noticeable delay when loading the Products Page after login, consistent with known performance issues.",
+  "description": "Verify that clicking the logout option from the navigation menu ends the session and redirects the user back to the Login Page.",
   "tags": [
-    "performance",
-    "performance_glitch_user",
-    "role_based",
-    "load_time"
+    "logout",
+    "session",
+    "standard_user",
+    "smoke"
   ],
   "id": "SC-018"
 }

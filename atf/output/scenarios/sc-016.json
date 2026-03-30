@@ -1,15 +1,15 @@
 {
-  "name": "Standard user successfully logs out and returns to login page",
-  "feature": "User Logout",
-  "type": "happy_path",
+  "name": "Checkout blocked when required shipping fields are empty",
+  "feature": "Checkout",
+  "type": "negative",
   "priority": "High",
-  "page": "Products Page",
-  "description": "Verify that clicking the logout option from the menu terminates the session and redirects the user back to the Login Page.",
+  "page": "Checkout Page",
+  "description": "Verify that attempting to continue checkout without filling in required shipping fields displays validation error messages.",
   "tags": [
-    "logout",
-    "session",
-    "standard_user",
-    "navigation"
+    "checkout",
+    "validation",
+    "empty_field",
+    "negative"
   ],
   "id": "SC-016"
 }

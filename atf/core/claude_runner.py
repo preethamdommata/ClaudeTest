@@ -97,14 +97,16 @@ class ClaudeRunner:
             "-p",               prompt,
         ]
 
-        logger.info(f"Claude CLI → stage={stage} model={model}")
+        # Automation stage needs more time — larger prompt + code generation
+        timeout = 480 if stage == "automate" else 300
+        logger.info(f"Claude CLI → stage={stage} model={model} timeout={timeout}s")
 
         try:
             result = subprocess.run(
                 cmd,
                 capture_output=True,
                 text=True,
-                timeout=300,
+                timeout=timeout,
             )
             if result.returncode != 0:
                 logger.error(f"Claude CLI error:\n{result.stderr}")
@@ -117,12 +119,51 @@ class ClaudeRunner:
             )
 
     def _parse_json(self, raw: str, stage: str) -> dict | list:
-        # Strip markdown code fences if present
-        cleaned = re.sub(r"^```(?:json)?\s*", "", raw.strip(), flags=re.MULTILINE)
-        cleaned = re.sub(r"\s*```$", "", cleaned.strip(), flags=re.MULTILINE)
+        if not raw or not raw.strip():
+            logger.error(f"Claude returned empty output at stage '{stage}'")
+            raise ValueError(f"Empty response from Claude at stage '{stage}'")
+
+        # Strategy 1: extract first JSON block between outermost { } or [ ]
+        cleaned = self._extract_json_block(raw)
+
+        # Strategy 2: strip markdown fences and retry
+        if not cleaned:
+            cleaned = re.sub(r"```(?:json)?", "", raw, flags=re.IGNORECASE)
+            cleaned = cleaned.strip()
+
         try:
             return json.loads(cleaned)
         except json.JSONDecodeError as e:
             logger.error(f"JSON parse failed at stage '{stage}': {e}")
-            logger.error(f"Raw output:\n{raw[:500]}")
+            logger.error(f"Raw output (first 800 chars):\n{raw[:800]}")
             raise
+
+    def _extract_json_block(self, raw: str) -> str:
+        """Extract the outermost JSON object or array from raw text."""
+        raw = raw.strip()
+        for start_char, end_char in [('{', '}'), ('[', ']')]:
+            start = raw.find(start_char)
+            if start == -1:
+                continue
+            depth = 0
+            in_str = False
+            escape = False
+            for i, ch in enumerate(raw[start:], start):
+                if escape:
+                    escape = False
+                    continue
+                if ch == '\\' and in_str:
+                    escape = True
+                    continue
+                if ch == '"':
+                    in_str = not in_str
+                    continue
+                if in_str:
+                    continue
+                if ch == start_char:
+                    depth += 1
+                elif ch == end_char:
+                    depth -= 1
+                    if depth == 0:
+                        return raw[start:i + 1]
+        return ""

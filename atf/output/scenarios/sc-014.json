@@ -1,15 +1,14 @@
 {
-  "name": "Checkout attempt with empty first name field",
-  "feature": "Checkout",
-  "type": "negative",
+  "name": "Remove item from shopping cart",
+  "feature": "Shopping Cart",
+  "type": "happy_path",
   "priority": "High",
-  "page": "Checkout Page",
-  "description": "Verify that submitting the checkout form without a first name displays a validation error and prevents proceeding to the next step.",
+  "page": "Shopping Cart Page",
+  "description": "Verify that clicking 'Remove' on a cart item removes it from the cart and decrements the cart badge count accordingly.",
   "tags": [
-    "checkout",
-    "validation",
-    "required_field",
-    "negative"
+    "cart",
+    "remove_item",
+    "standard_user"
   ],
   "id": "SC-014"
 }

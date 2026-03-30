@@ -1,15 +1,15 @@
 {
-  "name": "Standard user views full product catalog after login",
-  "feature": "Product Catalog",
-  "type": "happy_path",
+  "name": "Login attempt with valid username and wrong password",
+  "feature": "User Authentication",
+  "type": "negative",
   "priority": "High",
-  "page": "Products Page",
-  "description": "Verify that after a successful login, standard_user sees the complete product inventory displayed on the Products Page.",
+  "page": "Login Page",
+  "description": "Verify that entering a valid username with an incorrect password results in an authentication error and prevents access.",
   "tags": [
-    "catalog",
-    "products",
-    "standard_user",
-    "smoke"
+    "login",
+    "authentication",
+    "invalid_credentials",
+    "negative"
   ],
   "id": "SC-007"
 }

@@ -1,15 +1,16 @@
 {
-  "name": "Checkout attempt with empty postal code field",
+  "name": "Complete checkout flow with valid shipping information",
   "feature": "Checkout",
-  "type": "boundary",
-  "priority": "Medium",
+  "type": "happy_path",
+  "priority": "High",
   "page": "Checkout Page",
-  "description": "Verify that submitting the checkout form with the postal code left blank triggers a required-field error for that input.",
+  "description": "Verify that a standard_user can complete the full checkout by entering valid first name, last name, and postal code, and reaches the Order Confirmation Page.",
   "tags": [
     "checkout",
-    "validation",
-    "boundary",
-    "postal_code"
+    "purchase",
+    "standard_user",
+    "smoke",
+    "end_to_end"
   ],
   "id": "SC-015"
 }

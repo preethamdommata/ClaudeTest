@@ -1,0 +1,81 @@
+{
+  "name": "Standard user successful login with valid credentials",
+  "page": "Login Page",
+  "url": "/",
+  "type": "happy_path",
+  "priority": "High",
+  "preconditions": [
+    "The SauceDemo application is accessible at the base URL",
+    "The user 'standard_user' account exists and is active",
+    "The browser is open and no user is currently logged in",
+    "Cookies and local storage are cleared from any previous session"
+  ],
+  "test_data": {
+    "username": "standard_user",
+    "password": "secret_sauce",
+    "expected_page_title": "Products",
+    "expected_url_path": "/inventory.html"
+  },
+  "steps": [
+    {
+      "step": 1,
+      "action": "Navigate to the application base URL",
+      "test_data": "/",
+      "expected": "The Login Page is displayed with a username field, password field, and a Login button visible"
+    },
+    {
+      "step": 2,
+      "action": "Enter the username into the Username input field",
+      "test_data": "standard_user",
+      "expected": "The text 'standard_user' appears in the username input field with no error styling"
+    },
+    {
+      "step": 3,
+      "action": "Enter the password into the Password input field",
+      "test_data": "secret_sauce",
+      "expected": "The password field shows masked characters (dots or asterisks) and no error styling is present"
+    },
+    {
+      "step": 4,
+      "action": "Click the Login button",
+      "test_data": "",
+      "expected": "The browser navigates away from the Login Page and the URL changes to '/inventory.html'"
+    },
+    {
+      "step": 5,
+      "action": "Verify the current page URL",
+      "test_data": "/inventory.html",
+      "expected": "The URL in the browser address bar ends with '/inventory.html'"
+    },
+    {
+      "step": 6,
+      "action": "Verify the page header title text",
+      "test_data": "Products",
+      "expected": "The page header displays the text 'Products'"
+    },
+    {
+      "step": 7,
+      "action": "Verify the product inventory list is displayed",
+      "test_data": "",
+      "expected": "At least one product item with a name, image, description, and price is visible on the page"
+    },
+    {
+      "step": 8,
+      "action": "Verify the navigation menu button is present",
+      "test_data": "",
+      "expected": "The hamburger/menu icon is visible in the top-left corner of the page, indicating a successful authenticated session"
+    }
+  ],
+  "postconditions": [
+    "The user 'standard_user' is logged in and the session is active on the Products Page",
+    "The application state reflects an authenticated user with no items in the cart"
+  ],
+  "tags": [
+    "login",
+    "authentication",
+    "standard_user",
+    "smoke"
+  ],
+  "id": "TC-001",
+  "scenario_id": "SC-001"
+}

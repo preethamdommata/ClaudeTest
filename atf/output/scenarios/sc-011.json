@@ -1,15 +1,15 @@
 {
-  "name": "Standard user adds single item to shopping cart",
-  "feature": "Shopping Cart",
+  "name": "Product catalog sorting by name A to Z",
+  "feature": "Product Sorting",
   "type": "happy_path",
-  "priority": "High",
+  "priority": "Medium",
   "page": "Products Page",
-  "description": "Verify that clicking 'Add to Cart' on a product increments the cart badge count and adds the item to the Shopping Cart Page.",
+  "description": "Verify that selecting 'Name (A to Z)' from the sort dropdown reorders the product list alphabetically in ascending order.",
   "tags": [
-    "cart",
-    "add_to_cart",
-    "standard_user",
-    "smoke"
+    "sorting",
+    "catalog",
+    "name",
+    "standard_user"
   ],
   "id": "SC-011"
 }
