@@ -1,13 +1,13 @@
 {
-  "name": "Locked out user receives error message on login",
+  "name": "Locked out user sees error message on login attempt",
   "page": "Login Page",
   "url": "/",
   "type": "negative",
   "priority": "High",
   "preconditions": [
-    "The application is accessible and the login page is loaded",
-    "The user account 'locked_out_user' exists in the system with a locked status",
-    "No active session exists in the browser"
+    "The Sauce Demo application is accessible and running",
+    "The account 'locked_out_user' exists in the system and is in a locked-out state",
+    "The browser is open and no active session exists (user is logged out)"
   ],
   "test_data": {
     "username": "locked_out_user",
@@ -17,56 +17,81 @@
   "steps": [
     {
       "step": 1,
-      "action": "Navigate to the application login page",
-      "test_data": "https://www.saucedemo.com/",
-      "expected": "The Login Page is displayed with username field, password field, and a Login button visible"
+      "action": "Navigate to the Sauce Demo login page at the base URL",
+      "test_data": "",
+      "expected": "The Login Page is displayed with a Username field, Password field, and Login button visible"
     },
     {
       "step": 2,
-      "action": "Enter the locked out username into the Username field",
+      "action": "Enter the locked-out username into the Username field",
       "test_data": "locked_out_user",
-      "expected": "The username 'locked_out_user' appears in the Username input field"
+      "expected": "The text 'locked_out_user' appears in the Username input field"
     },
     {
       "step": 3,
       "action": "Enter the password into the Password field",
       "test_data": "secret_sauce",
-      "expected": "The password is entered and displayed as masked characters in the Password input field"
+      "expected": "The password is masked and entered into the Password input field"
     },
     {
       "step": 4,
       "action": "Click the Login button",
       "test_data": "",
-      "expected": "The form is submitted; the page does not navigate away from the login page"
+      "expected": "The form is submitted; no redirect to the inventory or any other application page occurs"
     },
     {
       "step": 5,
-      "action": "Verify an error message container is displayed on the page",
+      "action": "Verify the current URL remains on the login page",
       "test_data": "",
-      "expected": "An error message banner or container is visible on the Login Page"
+      "expected": "The URL does not change from the base login URL (no navigation to '/inventory.html' or any other page)"
     },
     {
       "step": 6,
+      "action": "Verify an error message container is visible on the page",
+      "test_data": "",
+      "expected": "A red error banner or message container is displayed on the Login Page"
+    },
+    {
+      "step": 7,
       "action": "Verify the exact text content of the error message",
       "test_data": "Epic sadface: Sorry, this user has been locked out.",
       "expected": "The error message reads exactly: 'Epic sadface: Sorry, this user has been locked out.'"
     },
     {
-      "step": 7,
-      "action": "Verify the user remains on the Login Page and is not redirected to any authenticated page",
+      "step": 8,
+      "action": "Verify the Username and Password fields display error highlight styling",
       "test_data": "",
-      "expected": "The current URL remains at the login page URL and no authenticated content (e.g., product inventory) is visible"
+      "expected": "Both the Username and Password input fields are outlined or highlighted in red to indicate an error state"
+    },
+    {
+      "step": 9,
+      "action": "Verify error icon indicators are present on the Username and Password fields",
+      "test_data": "",
+      "expected": "An error icon (e.g., an 'X' or warning symbol) is visible inside or adjacent to both input fields"
+    },
+    {
+      "step": 10,
+      "action": "Click the X (close) button on the error message banner",
+      "test_data": "",
+      "expected": "The error message banner is dismissed and no longer visible on the page"
+    },
+    {
+      "step": 11,
+      "action": "Verify the page remains on the Login Page after dismissing the error",
+      "test_data": "",
+      "expected": "The Login Page is still displayed with Username and Password fields and the Login button; the user has not been redirected"
     }
   ],
   "postconditions": [
-    "No authenticated session is created for locked_out_user",
-    "The browser remains on the login page"
+    "The user remains unauthenticated and on the Login Page",
+    "No session or authentication token has been created for locked_out_user",
+    "The application state is unchanged from before the test"
   ],
   "tags": [
     "login",
     "authentication",
     "locked_out_user",
-    "error_handling"
+    "error_message"
   ],
   "id": "TC-002",
   "scenario_id": "SC-002"

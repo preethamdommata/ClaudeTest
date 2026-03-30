@@ -1,10 +1,10 @@
 login_page:
   last_healed: null
-  locator_count: 0
+  locator_count: 7
   url_pattern: /
   version: 1
 login_page_page:
   last_healed: null
-  locator_count: 0
+  locator_count: 11
   url_pattern: /
   version: 1

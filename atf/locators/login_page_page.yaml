@@ -1,0 +1,82 @@
+last_healed: null
+locators:
+  error_close_button:
+    fallback:
+    - .error-button
+    - .error-message-container button
+    healed: false
+    primary: '[data-test="error-button"]'
+    strategy: css
+  error_icons:
+    fallback:
+    - svg.error_icon
+    - .input_error ~ .error_icon
+    healed: false
+    primary: .error_icon
+    strategy: css
+  error_message:
+    fallback:
+    - .error-message-container h3
+    - .error-message-container .error
+    healed: false
+    primary: '[data-test="error"]'
+    strategy: css
+  inventory_container:
+    fallback:
+    - .inventory_list
+    - '#inventory_container .inventory_list'
+    healed: false
+    primary: '[data-test="inventory-container"]'
+    strategy: css
+  login_button:
+    fallback:
+    - '#login-button'
+    - .btn_action
+    healed: false
+    primary: '[data-test="login-button"]'
+    strategy: css
+  password_input:
+    fallback:
+    - '#password'
+    - input[name="password"]
+    healed: false
+    primary: '[data-test="password"]'
+    strategy: css
+  password_input_error:
+    fallback:
+    - '#password.input_error'
+    - input[name="password"].error
+    healed: false
+    primary: '[data-test="password"].input_error'
+    strategy: css
+  products_title:
+    fallback:
+    - .title
+    - span.title
+    healed: false
+    primary: '[data-test="title"]'
+    strategy: css
+  shopping_cart:
+    fallback:
+    - .shopping_cart_link
+    - '#shopping_cart_container a'
+    healed: false
+    primary: '[data-test="shopping-cart-link"]'
+    strategy: css
+  username_input:
+    fallback:
+    - '#user-name'
+    - input[name="user-name"]
+    healed: false
+    primary: '[data-test="username"]'
+    strategy: css
+  username_input_error:
+    fallback:
+    - '#user-name.input_error'
+    - input[name="user-name"].error
+    healed: false
+    primary: '[data-test="username"].input_error'
+    strategy: css
+page: login_page_page
+url_pattern: /
+version: 1

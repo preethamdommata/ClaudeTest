@@ -98,6 +98,18 @@ OUTPUT: Return ONLY the corrected Python test script. No markdown fences. No exp
 
     def _clean_code(self, raw: str) -> str:
         import re
-        cleaned = re.sub(r"^```(?:python)?\s*", "", raw.strip(), flags=re.MULTILINE)
-        cleaned = re.sub(r"\s*```$", "", cleaned.strip(), flags=re.MULTILINE)
-        return cleaned
+        # Strip fences
+        code = re.sub(r"```(?:python)?", "", raw, flags=re.IGNORECASE).strip()
+        # Find first Python-like line and discard prose before it
+        match = re.search(
+            r"^(import |from |def |class |@|#\s|\s*\"\"\")", code, re.MULTILINE
+        )
+        if match:
+            code = code[match.start():]
+        # Strip trailing non-Python prose
+        lines = code.splitlines()
+        last = 0
+        for i, line in enumerate(lines):
+            if line.strip() and not re.match(r"^(\*{1,2}[^*]|\-{3,}|={3,})", line.strip()):
+                last = i
+        return "\n".join(lines[:last + 1]).strip() + "\n"

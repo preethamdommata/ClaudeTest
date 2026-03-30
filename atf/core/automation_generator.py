@@ -82,11 +82,9 @@ class AutomationGenerator:
 
     def _write_page_object(self, page_obj: dict) -> str:
         module_name = page_obj.get("module_name", "unknown_page")
-        code        = page_obj.get("code", "")
-        code        = self._unescape(code)
+        code        = self._extract_python(page_obj.get("code", ""))
 
         path = f"{self.pages_dir}/{module_name}.py"
-        # Only write if file doesn't exist — don't overwrite user edits
         if not Path(path).exists():
             save_text(path, code)
             logger.success(f"Page object saved → {path}")
@@ -95,8 +93,7 @@ class AutomationGenerator:
         return path
 
     def _write_test_script(self, test_script: dict, tc_id: str) -> str:
-        code = test_script.get("code", "")
-        code = self._unescape(code)
+        code = self._extract_python(test_script.get("code", ""))
 
         filename  = f"test_{tc_id.lower().replace('-', '_')}.py"
         test_file = f"{self.tests_dir}/{filename}"
@@ -115,6 +112,37 @@ class AutomationGenerator:
             slug += "_page"
         return slug
 
-    def _unescape(self, code: str) -> str:
-        """Restore escaped newlines/tabs that JSON encoding may produce."""
-        return code.replace("\\n", "\n").replace("\\t", "    ")
+    def _extract_python(self, raw: str) -> str:
+        """
+        Ensure the string is valid Python source.
+        1. Unescape JSON-encoded newlines/tabs.
+        2. Strip markdown code fences.
+        3. Find the first Python-like line (import/from/def/class/@/# )
+           and discard anything before it, and any trailing prose after
+           the last valid Python line.
+        """
+        # Step 1: unescape
+        code = raw.replace("\\n", "\n").replace("\\t", "    ")
+
+        # Step 2: strip fences
+        code = re.sub(r"```(?:python)?", "", code, flags=re.IGNORECASE).strip()
+
+        # Step 3: find first Python line
+        python_start = re.compile(
+            r"^(import |from |def |class |@|#\s|\s*\"\"\")", re.MULTILINE
+        )
+        match = python_start.search(code)
+        if match:
+            code = code[match.start():]
+
+        # Step 4: strip trailing non-Python prose (markdown, blank explanation lines)
+        lines = code.splitlines()
+        last_code_line = 0
+        for i, line in enumerate(lines):
+            stripped = line.strip()
+            # A line is "code-like" if it's not pure prose (not starting with *, -, #! etc.)
+            if stripped and not re.match(r"^(\*{1,2}[^*]|\-{3,}|={3,})", stripped):
+                last_code_line = i
+        code = "\n".join(lines[: last_code_line + 1])
+
+        return code.strip() + "\n"
