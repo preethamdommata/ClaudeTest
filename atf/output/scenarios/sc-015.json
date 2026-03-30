@@ -1,0 +1,14 @@
+{
+  "name": "Checkout fails when required fields are missing",
+  "feature": "Checkout",
+  "type": "negative",
+  "priority": "High",
+  "page": "Checkout Page",
+  "description": "Attempt to submit the checkout form with one or more required fields (first name, last name, zip code) left blank. Verify validation errors are displayed.",
+  "tags": [
+    "checkout",
+    "validation",
+    "missing_fields"
+  ],
+  "id": "SC-015"
+}

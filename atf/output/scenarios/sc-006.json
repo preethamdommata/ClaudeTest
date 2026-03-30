@@ -1,0 +1,14 @@
+{
+  "name": "Product catalog loads all items for standard user",
+  "feature": "Product Catalog",
+  "type": "happy_path",
+  "priority": "High",
+  "page": "Products Page",
+  "description": "After standard_user logs in, verify the Products Page displays the full inventory with product names, images, descriptions, and prices.",
+  "tags": [
+    "catalog",
+    "standard_user",
+    "page_load"
+  ],
+  "id": "SC-006"
+}

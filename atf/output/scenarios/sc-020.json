@@ -1,0 +1,14 @@
+{
+  "name": "Error user receives error messages during cart operations",
+  "feature": "Shopping Cart",
+  "type": "role_based",
+  "priority": "Medium",
+  "page": "Shopping Cart Page",
+  "description": "Log in as error_user, add products to the cart, and attempt cart operations. Verify error messages are surfaced as documented for this user type.",
+  "tags": [
+    "error_user",
+    "cart",
+    "error_message"
+  ],
+  "id": "SC-020"
+}

@@ -104,7 +104,7 @@ class ClaudeRunner:
                 cmd,
                 capture_output=True,
                 text=True,
-                timeout=120,
+                timeout=300,
             )
             if result.returncode != 0:
                 logger.error(f"Claude CLI error:\n{result.stderr}")

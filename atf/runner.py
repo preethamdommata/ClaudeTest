@@ -38,7 +38,7 @@ def load_config() -> dict:
 # ------------------------------------------------------------------
 
 def run_analysis(runner, config, brd_path, url, resume) -> dict:
-    summary_path = config["paths"]["output"]["root"] + "app_summary.json"
+    summary_path = config["paths"]["output"]["root"] + "/app_summary.json"
 
     if resume and Path(summary_path).exists():
         logger.info(f"Resuming — loading existing summary: {summary_path}")
@@ -109,7 +109,7 @@ def main(brd, url, resume, no_human, base_url):
     # STAGE 1: ANALYZE
     # ==================================================================
     app_summary = run_analysis(runner, config, brd, url, resume)
-    summary_path = config["paths"]["output"]["root"] + "app_summary.json"
+    summary_path = config["paths"]["output"]["root"] + "/app_summary.json"
 
     decision = gate.review_analysis(summary_path)
     while decision["action"] == "R":
@@ -143,7 +143,7 @@ def main(brd, url, resume, no_human, base_url):
         # --- Stage 3: Test Case Authoring ---
         testcase = run_testcase_authoring(runner, config, scenario)
         tc_id    = testcase.get("id", "TC-???")
-        tc_path  = f"{config['paths']['output']['testcases']}/{tc_id.lower()}.json"
+        tc_path  = f"{config['paths']['output']['testcases'].rstrip('/')}/{tc_id.lower()}.json"
 
         decision = gate.review_testcase(tc_path, sc_name)
         while decision["action"] == "R":
@@ -177,7 +177,7 @@ def main(brd, url, resume, no_human, base_url):
 
         # --- Git Commit + Push ---
         files_to_commit = [
-            f"{config['paths']['output']['scenarios']}/{sc_id.lower()}.json",
+            f"{config['paths']['output']['scenarios'].rstrip('/')}/{sc_id.lower()}.json",
             tc_path,
             test_path,
             locator_path,

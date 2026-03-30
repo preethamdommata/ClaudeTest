@@ -23,7 +23,7 @@ class ScenarioGenerator:
         for i, sc in enumerate(scenarios, start=1):
             sc_id = f"SC-{i:03d}"
             sc["id"] = sc_id
-            path = f"{self.scenarios_dir}/{sc_id.lower()}.json"
+            path = f"{self.scenarios_dir.rstrip('/')}/{sc_id.lower()}.json"
             save_json(path, sc)
             logger.info(f"Saved scenario: {path}")
             saved.append(sc)

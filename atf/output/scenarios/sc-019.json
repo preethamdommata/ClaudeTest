@@ -1,0 +1,14 @@
+{
+  "name": "Visual user sees inconsistent UI elements",
+  "feature": "Product Catalog",
+  "type": "role_based",
+  "priority": "Low",
+  "page": "Products Page",
+  "description": "Log in as visual_user and verify that known visual inconsistencies (e.g., misaligned elements, incorrect images) are present on the Products Page.",
+  "tags": [
+    "visual_user",
+    "ui_ux",
+    "visual_inconsistency"
+  ],
+  "id": "SC-019"
+}

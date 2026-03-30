@@ -1,0 +1,14 @@
+{
+  "name": "Proceed to checkout with empty cart",
+  "feature": "Checkout",
+  "type": "negative",
+  "priority": "Medium",
+  "page": "Shopping Cart Page",
+  "description": "Navigate to the Shopping Cart Page with no items added and attempt to proceed to checkout. Verify appropriate feedback or an empty cart state is shown.",
+  "tags": [
+    "cart",
+    "checkout",
+    "empty_cart"
+  ],
+  "id": "SC-013"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "View product details from catalog",
+  "feature": "Product Details",
+  "type": "happy_path",
+  "priority": "Medium",
+  "page": "Product Details Page",
+  "description": "Click on a product name or image from the Products Page and verify the Product Details Page shows the correct name, description, price, and image.",
+  "tags": [
+    "product_details",
+    "navigation",
+    "standard_user"
+  ],
+  "id": "SC-016"
+}

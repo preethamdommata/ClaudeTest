@@ -1,0 +1,14 @@
+{
+  "name": "Standard user logout returns to login page",
+  "feature": "User Logout",
+  "type": "happy_path",
+  "priority": "High",
+  "page": "Products Page",
+  "description": "While logged in as standard_user, open the menu and click Logout. Verify the session is terminated and the Login Page is displayed.",
+  "tags": [
+    "logout",
+    "session",
+    "standard_user"
+  ],
+  "id": "SC-018"
+}

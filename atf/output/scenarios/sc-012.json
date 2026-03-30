@@ -1,0 +1,14 @@
+{
+  "name": "Remove product from cart on cart page",
+  "feature": "Shopping Cart",
+  "type": "happy_path",
+  "priority": "High",
+  "page": "Shopping Cart Page",
+  "description": "Add a product to the cart, navigate to the Shopping Cart Page, and remove it. Verify the cart is empty and the badge is cleared.",
+  "tags": [
+    "cart",
+    "remove_item",
+    "standard_user"
+  ],
+  "id": "SC-012"
+}

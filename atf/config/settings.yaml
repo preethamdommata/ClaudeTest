@@ -27,15 +27,15 @@ playwright:
   slow_mo:    0
 
 paths:
-  prompts:    prompts/
-  locators:   locators/
-  pages:      pages/
+  prompts:    prompts
+  locators:   locators
+  pages:      pages
   output:
-    root:       output/
-    scenarios:  output/scenarios/
-    testcases:  output/testcases/
-    tests:      output/tests/
-  reports:    reports/
+    root:       output
+    scenarios:  output/scenarios
+    testcases:  output/testcases
+    tests:      output/tests
+  reports:    reports
 
 human_loop:
   enabled: true                 # set false to run fully automated (CI mode)

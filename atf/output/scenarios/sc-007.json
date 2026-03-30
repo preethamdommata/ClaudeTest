@@ -1,0 +1,14 @@
+{
+  "name": "Product catalog displays glitches for problem user",
+  "feature": "Product Catalog",
+  "type": "role_based",
+  "priority": "Medium",
+  "page": "Products Page",
+  "description": "Log in as problem_user and verify the Products Page exhibits known application glitches such as broken images or incorrect data.",
+  "tags": [
+    "catalog",
+    "problem_user",
+    "glitch"
+  ],
+  "id": "SC-007"
+}

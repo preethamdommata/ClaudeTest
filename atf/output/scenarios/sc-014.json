@@ -1,0 +1,14 @@
+{
+  "name": "Complete checkout with valid shipping information",
+  "feature": "Checkout",
+  "type": "happy_path",
+  "priority": "High",
+  "page": "Checkout Page",
+  "description": "Add items to cart, proceed to checkout, fill in valid first name, last name, and zip code, and complete the purchase. Verify the Order Confirmation Page is displayed.",
+  "tags": [
+    "checkout",
+    "happy_path",
+    "standard_user"
+  ],
+  "id": "SC-014"
+}

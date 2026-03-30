@@ -1,0 +1,78 @@
+{
+  "name": "Standard user login with valid credentials",
+  "page": "Login Page",
+  "url": "/",
+  "type": "happy_path",
+  "priority": "High",
+  "preconditions": [
+    "The application is accessible and the login page loads without errors",
+    "The user account 'standard_user' exists and is active in the system",
+    "No active session exists for the user (user is logged out)"
+  ],
+  "test_data": {
+    "username": "standard_user",
+    "password": "secret_sauce"
+  },
+  "steps": [
+    {
+      "step": 1,
+      "action": "Navigate to the application root URL",
+      "test_data": "",
+      "expected": "The Login Page is displayed with a username field, password field, and a Login button visible"
+    },
+    {
+      "step": 2,
+      "action": "Enter the username into the Username input field",
+      "test_data": "standard_user",
+      "expected": "The text 'standard_user' appears in the Username field"
+    },
+    {
+      "step": 3,
+      "action": "Enter the password into the Password input field",
+      "test_data": "secret_sauce",
+      "expected": "The password field displays masked characters (e.g. bullets) corresponding to the entered password"
+    },
+    {
+      "step": 4,
+      "action": "Click the Login button",
+      "test_data": "",
+      "expected": "The login form is submitted and the application begins processing the credentials"
+    },
+    {
+      "step": 5,
+      "action": "Verify the current page URL after login",
+      "test_data": "",
+      "expected": "The URL changes to '/inventory.html' indicating a successful redirect to the Products Page"
+    },
+    {
+      "step": 6,
+      "action": "Verify the Products Page header is displayed",
+      "test_data": "",
+      "expected": "The page title or header displays 'Products' confirming the user has landed on the Products Page"
+    },
+    {
+      "step": 7,
+      "action": "Verify the product inventory list is visible",
+      "test_data": "",
+      "expected": "At least one product item is displayed on the page, confirming the Products Page has loaded correctly"
+    },
+    {
+      "step": 8,
+      "action": "Verify no error messages are displayed on the page",
+      "test_data": "",
+      "expected": "No error banners, alert boxes, or inline error messages are present on the Products Page"
+    }
+  ],
+  "postconditions": [
+    "User 'standard_user' is authenticated and has an active session",
+    "User is on the Products Page (/inventory.html)",
+    "Session should be cleared after test execution to avoid state leakage into subsequent tests"
+  ],
+  "tags": [
+    "login",
+    "authentication",
+    "standard_user"
+  ],
+  "id": "TC-001",
+  "scenario_id": "SC-001"
+}

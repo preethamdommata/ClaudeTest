@@ -1,0 +1,14 @@
+{
+  "name": "Login attempt with invalid password",
+  "feature": "User Authentication",
+  "type": "negative",
+  "priority": "High",
+  "page": "Login Page",
+  "description": "Enter a valid username with an incorrect password and submit the form. Verify an authentication error is displayed and the user is not granted access.",
+  "tags": [
+    "login",
+    "authentication",
+    "invalid_credentials"
+  ],
+  "id": "SC-004"
+}

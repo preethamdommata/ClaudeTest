@@ -1,0 +1,14 @@
+{
+  "name": "Product catalog loads with delay for performance glitch user",
+  "feature": "Product Catalog",
+  "type": "role_based",
+  "priority": "Medium",
+  "page": "Products Page",
+  "description": "Log in as performance_glitch_user and verify the Products Page loads but exhibits a noticeable delay before content is rendered.",
+  "tags": [
+    "catalog",
+    "performance_glitch_user",
+    "slow_load"
+  ],
+  "id": "SC-008"
+}

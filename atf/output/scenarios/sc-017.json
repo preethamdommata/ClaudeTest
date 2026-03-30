@@ -1,0 +1,14 @@
+{
+  "name": "Add product to cart from product details page",
+  "feature": "Product Details",
+  "type": "happy_path",
+  "priority": "Medium",
+  "page": "Product Details Page",
+  "description": "Navigate to a product's detail page and click 'Add to Cart'. Verify the cart badge increments and the button state updates accordingly.",
+  "tags": [
+    "product_details",
+    "add_to_cart",
+    "standard_user"
+  ],
+  "id": "SC-017"
+}

@@ -21,7 +21,7 @@ class TestCaseAuthor:
         testcase["id"] = tc_id
         testcase["scenario_id"] = sc_id
 
-        path = f"{self.testcases_dir}/{tc_id.lower()}.json"
+        path = f"{self.testcases_dir.rstrip('/')}/{tc_id.lower()}.json"
         save_json(path, testcase)
         logger.success(f"Test case saved → {path}")
         return testcase

@@ -1,0 +1,14 @@
+{
+  "name": "Sort products by price low to high",
+  "feature": "Product Sorting",
+  "type": "happy_path",
+  "priority": "Medium",
+  "page": "Products Page",
+  "description": "Select the 'Price (low to high)' sort option and verify products are reordered with the lowest-priced item appearing first.",
+  "tags": [
+    "sorting",
+    "price",
+    "standard_user"
+  ],
+  "id": "SC-009"
+}

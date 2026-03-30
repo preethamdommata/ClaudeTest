@@ -1,0 +1,14 @@
+{
+  "name": "Login attempt with only password provided",
+  "feature": "User Authentication",
+  "type": "boundary",
+  "priority": "Medium",
+  "page": "Login Page",
+  "description": "Submit the login form with the username field empty and a valid password. Verify that a required-field error is shown for the username.",
+  "tags": [
+    "login",
+    "validation",
+    "missing_username"
+  ],
+  "id": "SC-005"
+}

@@ -39,7 +39,7 @@ class AutomationGenerator:
         code = self._clean_code(raw_code)
 
         # Save test file
-        test_file = f"{self.tests_dir}/test_{tc_id.lower().replace('-', '_')}.py"
+        test_file = f"{self.tests_dir.rstrip('/')}/test_{tc_id.lower().replace('-', '_')}.py"
         save_text(test_file, code)
         logger.success(f"Test script saved → {test_file}")
 

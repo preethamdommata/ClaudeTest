@@ -1,0 +1,14 @@
+{
+  "name": "Locked out user receives error on login",
+  "feature": "User Authentication",
+  "type": "negative",
+  "priority": "High",
+  "page": "Login Page",
+  "description": "Verify locked_out_user cannot log in and receives an appropriate locked-out error message. User must not be redirected to the Products Page.",
+  "tags": [
+    "login",
+    "locked_out_user",
+    "error_message"
+  ],
+  "id": "SC-002"
+}

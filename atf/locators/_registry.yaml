@@ -1,3 +1,5 @@
-# ATF Locator Registry
-# Auto-maintained — do not edit manually.
-# Maps page names to their locator file metadata.
+login_page_page:
+  last_healed: null
+  locator_count: 0
+  url_pattern: /
+  version: 1

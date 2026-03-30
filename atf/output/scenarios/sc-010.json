@@ -1,0 +1,14 @@
+{
+  "name": "Sort products by name Z to A",
+  "feature": "Product Sorting",
+  "type": "happy_path",
+  "priority": "Low",
+  "page": "Products Page",
+  "description": "Select the 'Name (Z to A)' sort option and verify products are reordered in reverse alphabetical order.",
+  "tags": [
+    "sorting",
+    "name",
+    "standard_user"
+  ],
+  "id": "SC-010"
+}

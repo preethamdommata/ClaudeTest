@@ -1,0 +1,96 @@
+{
+  "app_name": "Swag Labs",
+  "app_purpose": "Demo e-commerce application for testing and automation practice with multiple user accounts exhibiting different behaviors and issues.",
+  "user_roles": [
+    "standard_user",
+    "locked_out_user",
+    "problem_user",
+    "performance_glitch_user",
+    "error_user",
+    "visual_user"
+  ],
+  "features": [
+    {
+      "name": "User Authentication",
+      "description": "Login form authenticates users with username and password credentials."
+    },
+    {
+      "name": "Product Catalog",
+      "description": "Displays inventory of products available for purchase."
+    },
+    {
+      "name": "Shopping Cart",
+      "description": "Manages selected products and quantities before checkout."
+    },
+    {
+      "name": "Checkout",
+      "description": "Processes purchase with shipping and payment information."
+    },
+    {
+      "name": "Product Details",
+      "description": "Shows detailed information and specifications for individual products."
+    },
+    {
+      "name": "Product Sorting",
+      "description": "Sorts product list by price, name, or other criteria."
+    },
+    {
+      "name": "User Logout",
+      "description": "Terminates user session and returns to login page."
+    }
+  ],
+  "key_flows": [
+    {
+      "name": "Standard User Login and Shop",
+      "steps": [
+        "Enter standard_user credentials",
+        "Submit login form",
+        "Access product catalog",
+        "Add items to cart",
+        "Proceed to checkout",
+        "Complete purchase"
+      ]
+    },
+    {
+      "name": "Locked Out User Login Attempt",
+      "steps": [
+        "Enter locked_out_user credentials",
+        "Submit login form",
+        "Receive locked out error",
+        "Cannot proceed to application"
+      ]
+    },
+    {
+      "name": "Problem User Navigation",
+      "steps": [
+        "Login with problem_user account",
+        "Experience application issues during navigation"
+      ]
+    },
+    {
+      "name": "User Logout",
+      "steps": [
+        "Click logout button",
+        "Return to login page"
+      ]
+    }
+  ],
+  "pages": [
+    "Login Page",
+    "Products Page",
+    "Product Details Page",
+    "Shopping Cart Page",
+    "Checkout Page",
+    "Order Confirmation Page"
+  ],
+  "constraints": [
+    "All users share password: secret_sauce",
+    "Username field is required",
+    "Password field is required",
+    "locked_out_user account is disabled",
+    "problem_user exhibits application glitches",
+    "performance_glitch_user experiences slow load times",
+    "error_user receives error messages during operations",
+    "visual_user sees visual inconsistencies"
+  ]
+}
