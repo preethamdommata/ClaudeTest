@@ -1,14 +1,15 @@
 {
-  "name": "Standard user login with valid credentials",
+  "name": "Standard user successful login with valid credentials",
   "feature": "User Authentication",
   "type": "happy_path",
   "priority": "High",
   "page": "Login Page",
-  "description": "Verify standard_user can log in with username 'standard_user' and password 'secret_sauce'. User should be redirected to the Products Page on success.",
+  "description": "Verify that standard_user can log in with username 'standard_user' and password 'secret_sauce' and is redirected to the Products Page.",
   "tags": [
     "login",
     "authentication",
-    "standard_user"
+    "standard_user",
+    "smoke"
   ],
   "id": "SC-001"
 }
