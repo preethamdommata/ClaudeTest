@@ -54,7 +54,11 @@ class AutomationGenerator:
 
     def _infer_page_name(self, testcase: dict) -> str:
         name = testcase.get("page", "") or testcase.get("name", "unknown")
-        return re.sub(r"\s+", "_", name.lower().strip()) + "_page"
+        slug = re.sub(r"\s+", "_", name.lower().strip())
+        # Avoid double _page suffix
+        if not slug.endswith("_page"):
+            slug += "_page"
+        return slug
 
     def _clean_code(self, raw: str) -> str:
         cleaned = re.sub(r"^```(?:python)?\s*", "", raw.strip(), flags=re.MULTILINE)
